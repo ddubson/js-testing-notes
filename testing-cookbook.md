@@ -49,8 +49,12 @@ expect(wrapper.find(MyComponent).prop('myFunction')).toBe(wrapper.instance().myF
 **Test **the text of a button of a React component:
 
 ```javascript
+import {mount, shallow} from "enzyme";
+...
+wrapper = mount(<MyComponent />)
+...
 let button = wrapper.find(Button);
-expect(button.text()).toEqual("Add Entry");
+expect(button.text()).toEqual("Button Text");
 ```
 
 

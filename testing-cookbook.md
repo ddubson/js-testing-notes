@@ -35,7 +35,7 @@ import {mount} from 'enzyme';
 
 class App extends React.Component {
     myFunction() { console.log("does something"): }
-    
+
     render() {
         return ( <div><MyComponent myFunction={this.myFunction} /></div> )
     }
@@ -44,6 +44,13 @@ class App extends React.Component {
 ...
 const wrapper = mount(<App/>);
 expect(wrapper.find(MyComponent).prop('myFunction')).toBe(wrapper.instance().myFunction)
+```
+
+**Test **the text of a button of a React component:
+
+```javascript
+let button = wrapper.find(Button);
+expect(button.text()).toEqual("Add Entry");
 ```
 
 

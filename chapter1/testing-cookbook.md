@@ -14,7 +14,7 @@ Test the contents of a variable in the component state
 
 ```js
 const wrapper = mount(<App/>);
-expect(wrapper.state().myStateVariable).toEqual(0)
+expect(wrapper.state().myStateVariable).toEqual("my state variable")
 ```
 
 

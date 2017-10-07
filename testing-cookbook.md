@@ -14,7 +14,6 @@ wrapper.instance().myComponentFunction
 ```js
 import {shallow} from 'enzyme';
 ...
-
 const wrapper = shallow(<ParentComponent/>);
 expect(wrapper.find(ChildComponent).length).toEqual(1)
 ```
@@ -24,10 +23,27 @@ expect(wrapper.find(ChildComponent).length).toEqual(1)
 ```js
 import {mount} from 'enzyme';
 ...
-
-
 const wrapper = mount(<App/>);
 expect(wrapper.state().myStateVariable).toEqual("my state variable")
+```
+
+**Test **if a child component has a function passed down via props from the parent component
+
+```js
+import {mount} from 'enzyme';
+...
+
+class App extends React.Component {
+    myFunction() { console.log("does something"): }
+    
+    render() {
+        return ( <div><MyComponent myFunction={this.myFunction} /></div> )
+    }
+}
+
+...
+const wrapper = mount(<App/>);
+expect(wrapper.find(MyComponent).prop('myFunction')).toBe(wrapper.instance().myFunction)
 ```
 
 

@@ -57,5 +57,17 @@ let button = wrapper.find(Button);
 expect(button.text()).toEqual("Button Text");
 ```
 
+**Test **preventDefault functionality in Form components \(given onSubmit function has a `e.preventDefault()` call:
+
+```js
+import {spy} from 'sinon'
+import {mount} from 'enzyme'
+...
+const preventDefault = spy();
+const wrapper = mount(<Entry />);
+wrapper.find(Form).simulate('submit', { preventDefault });
+expect(preventDefault.calledOnce).toBeTruthy()
+```
+
 
 

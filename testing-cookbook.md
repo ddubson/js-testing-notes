@@ -71,7 +71,7 @@ expect(preventDefault.calledOnce).toBeTruthy()
 
 **Test** that a passed in function is called on some action \(e.g. `click` of button\) inside the component:
 
-```
+```js
 import {spy} from "sinon";
 import {mount} from "enzyme";
 import {Button} from "react-bootstrap";

@@ -57,5 +57,26 @@ let button = wrapper.find(Button);
 expect(button.text()).toEqual("Button Text");
 ```
 
+**Test **that a passed in function is called on some action \(e.g. 'click' of button\) inside the component:
+
+```
+import {spy} from "sinon";
+import {mount} from "enzyme";
+import {Button} from "react-bootstrap";
+...
+class MyComponent() {
+    render() {
+      return (
+        <Button onClick={this.onMyFunction}>My Button</Button>
+      );
+    }
+}
+...
+const myFunction = spy();
+const wrapper = mount(<MyComponent onMyFunction={myFunction}/>);
+wrapper.find(Button).simulate("click");
+expect(myFunction.calledOnce).toBe(true);
+```
+
 
 

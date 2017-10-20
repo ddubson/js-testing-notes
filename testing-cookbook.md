@@ -30,6 +30,7 @@ expect(wrapper.state().myStateVariable).toEqual("my state variable")
 **Test **if a child component has a function passed down via props from the parent component
 
 ```js
+import React from 'react'
 import {mount} from 'enzyme';
 ...
 
@@ -37,7 +38,7 @@ class App extends React.Component {
     myFunction() { console.log("does something"): }
 
     render() {
-        return ( <div><MyComponent myFunction={this.myFunction} /></div> )
+        return ( <div><MyComponent myFunction={this.myFunction.bind(this)} /></div> )
     }
 }
 
@@ -53,7 +54,7 @@ import {mount, shallow} from "enzyme";
 ...
 wrapper = mount(<MyComponent />)
 ...
-let button = wrapper.find(Button);
+const button = wrapper.find(Button);
 expect(button.text()).toEqual("Button Text");
 ```
 
